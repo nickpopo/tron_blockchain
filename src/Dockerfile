@@ -1,18 +1,21 @@
-FROM python:3.9-alpine
+FROM python:3.8.3-alpine
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 EXPOSE 8000
 
-RUN mkdir -p /usr/local/var/log/gunicorn/
+RUN apk update && apk add gcc g++ && mkdir -p /usr/local/var/log/gunicorn/
 
 WORKDIR /opt/app
 
-RUN pip install --upgrade pip
-
-COPY ./src/requirements.txt .
+# install dependencies
+RUN pip install --upgrade pip setuptools wheel
+COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY ./docker-entrypoint.sh .
-COPY ./src .
+COPY . .
 
 RUN chmod 441 ./docker-entrypoint.sh
 

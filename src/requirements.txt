@@ -19,7 +19,6 @@ hiredis==2.0.0
 httpcore==0.12.3
 httpx==0.16.1
 idna==2.10
-orjson==3.5.3
 parsimonious==0.8.1
 pycryptodome==3.10.1
 pydantic==1.8.2
