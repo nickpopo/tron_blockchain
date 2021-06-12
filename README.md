@@ -22,12 +22,11 @@ The following RESTful API endpoint should be implemented: GET /balances - return
 
 # How to deploy the solution
 
-1. rename `.env_example` to `.env` and make changes to suit your settings
-2. in console run command `docker-compose build -up`
-3. to finish run command `docker-compose down`
-
+1. in the root project directory run command `cp ./src/.env_example ./src/.env` 
+2. Open .env and make changes to suit your settings
+3. in the console run command `docker-compose build -up`
 4. to see api open `http://127.0.0.1:5000/api/openapi`
-5. make request like:
+5. make request using console with curl or Postman (unfortunately swagger does not support body with GET requests)):
 
         curl --location --request GET 'http://127.0.0.1:5000/v1/balances/' \
         --header 'Content-Type: application/json' \
@@ -44,3 +43,4 @@ The following RESTful API endpoint should be implemented: GET /balances - return
                 "TUPz3wD356e3iV337s4cnjQS2weUdhX5ci"
         ]
         }'
+6. to finish run command `docker-compose down`
