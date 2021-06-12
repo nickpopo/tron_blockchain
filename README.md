@@ -28,6 +28,7 @@ The following RESTful API endpoint should be implemented: GET /balances - return
 
 4. to see api open `http://127.0.0.1:5000/api/openapi`
 5. make request like:
+
         curl --location --request GET 'http://127.0.0.1:5000/v1/balances/' \
         --header 'Content-Type: application/json' \
         --data-raw '{
